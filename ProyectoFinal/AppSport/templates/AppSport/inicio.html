@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>AppSort</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppSport/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'AppSport/img/imagen1.jpg' %}" alt="..." /></div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Bienvenidx a AppSport. </br>¡Bienvenidx a nuestra comunidad!</h1>
+                    <p>En este sitio vas a poder encontrar las diferentes actividades </br> que brindamos en nuestras sedes. </br>¡Buscá la que mejor se adapte a tus gustos!</p>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Tenemos distintas actividades en distintas localidades de Bs. As. Visitanos y ¡no te quedes sin entrenar!</p></div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">SOCIOS</h2>
+                            <p class="card-text">En esta sección vas a poder registrarte o consultar tu información de usuario.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:socios' %}">Ingresar</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">ACTIVIDADES</h2>
+                            <p class="card-text">Acá vas a poder conocer cuáles son las diversas actividades que podés encontrar en nuestros establecimientos.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:actividades' %}">Ingresar</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">SEDES</h2>
+                            <p class="card-text">En este apartado vas a poder enterarte de las localidades en las cuales podes encontrar una sede de AppSport.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:sedes' %}">Ingresar</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block contenidoQueCambia %}
+        {% endblock %}
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppSport/js/scripts.js' %}"></script>
+    </body>
+</html>
