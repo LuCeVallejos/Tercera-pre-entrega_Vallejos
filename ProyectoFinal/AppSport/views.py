@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Socio, Actividad, Sede
 from . import models
-from .forms import SocioCrearFormulario, ActividadCrearFormulario, SedeCrearFormulario
+from .forms import SocioCrearFormulario, ActividadCrearFormulario, SedeCrearFormulario, SocioBuscarFormulario
 
 def inicio_view(request):
     return render(request, "AppSport/inicio.html")
@@ -33,6 +33,12 @@ def sedes_todas_view(request):
     sedes = models.Sede.objects.all()
     context = {"sedestodas": sedes}
     return render(request, "AppSport/index_sedes_lista.html", context)
+
+
+def socios_todos_view(request):
+    todos_los_socios = Socio.objects.all()
+    context = {"sociostodos": todos_los_socios}
+    return render(request, "AppSport/index_socios_lista.html", context)
 
 
 def socio_crear_view(request):
@@ -136,3 +142,45 @@ def sede_registro_ok_view(request):
 
 def sede_registro_fail_view(request):
     return render(request, "AppSport/index_socio_reg_fail.html")
+
+
+def socio_buscar_view(request):
+    if request.method == "GET":
+        form = SocioBuscarFormulario()
+        return render(
+            request,
+            "AppSport/index_socio_buscar.html",
+            context={"form": form}
+        )
+    else:
+        formulario = SocioBuscarFormulario(request.POST)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            socios_filtrados = []
+            for socio in Socio.objects.filter(dni=informacion["dni"]):
+                socios_filtrados.append(socio)
+
+            contexto = {"socios": socios_filtrados}
+            return render(request, "AppSport/index_socios_lista.html", contexto)
+        
+
+
+def socios_todos_view(request):
+    todos_los_socios = []
+    for socio in Socio.objects.all():
+        todos_los_socios.append(socio)
+
+    return render(request, "AppSport/index_socios_lista.html")
+
+
+def socio_buscar_resultado_view(request):
+    if request.method == "POST":
+        formulario = SocioBuscarFormulario(request.POST)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            socios_filtrados = Socio.objects.filter(dni=informacion["dni"])
+            context = {"sociostodos": socios_filtrados}
+            return render(request, "AppSport/index_socios_lista.html", context)
+    
+    context = {"form": SocioBuscarFormulario()}
+    return render(request, "AppSport/index_socios_lista.html")

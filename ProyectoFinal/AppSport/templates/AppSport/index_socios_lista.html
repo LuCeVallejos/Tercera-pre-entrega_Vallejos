@@ -1,79 +1,29 @@
-{% load static %}
+{% extends "AppSport/index_actividades_lista.html" %}
 
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>AppSort</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'AppSport/css/styles.css' %}" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="#!"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'AppSport:inicio' %}">Click acá para regresar a la página principal</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
-            <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'AppSport/img/socios.jpg' %}" alt="..." /></div>
-                <div class="col-lg-5">
-                    <h1 class="font-weight-light"></h1>
-                    <p><h4>Acá vas a poder interactuar </br> con el segmento Socios.</br> Registrate y formá parte </br>de nuestra comunidad. </br>También podes revisar </br>tus datos de usuario.</h4></p>
-                </div>
-            </div>
-            <!-- Call to Action-->
-            <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">Tenemos distintas actividades en distintas localidades de Bs. As. Visitanos y ¡no te quedes sin entrenar!</p></div>
-            </div>
-            <!-- Content Row-->
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">REGISTRATE</h2>
-                            <p class="card-text">En esta sección vas a poder registrarte como nuevx socix.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:socios' %}">Ingresar</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">TU INFO</h2>
-                            <p class="card-text">Acá vas a poder conocer tus datos como miembro de nuestra comunidad.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:actividades' %}">Ingresar</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    </div>
+{% block contenidoQueCambia %}
+    <!-- Page Content-->
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0"><h3>A continuación te mostramos los datos asociados al DNI que ingresaste.<h3></p>
+        </div>
+    </div>
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5 justify-content-center"> 
+        <div class="col-md-4 mb-5">
+            <div class="card h-100 mx-auto"> 
+                <div class="card-body">
+                    <h2 class="card-title">SOCIO</h2>
+                    <p class="card-text">
+                        {% for socio in sociostodos %}
+                            <h5>• DNI: {{ socio.dni }}</h5>
+                            <p>• Nombre: {{ socio.nombre }}</p>
+                            <p>• Apellido: {{ socio.apellido }}</p>
+                            <p>• Mail: {{ socio.mail }}</p>
+                        {% endfor %}
+                    </p>
                 </div>
             </div>
         </div>
-        {% block contenidoQueCambia %}
-        {% endblock %}
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{% static 'AppSport/js/scripts.js' %}"></script>
-    </body>
-</html>
+    </div>
+{% endblock %}
