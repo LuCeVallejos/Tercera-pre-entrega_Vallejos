@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>AppSport</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppSport/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'AppSport:inicio' %}">Click acá para regresar a la página principal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0"><h3>Te damos la bienvenida a este espacio para interactuar como miembro del Staff Administrativo de AppSport.<h3></p></div>
+            </div>
+        {% block contenidoQueCambia %}
+<!-- Content Row-->
+<div class="row gx-4 gx-lg-5 justify-content-center"> 
+    <div class="col-md-4 mb-5">
+        <div class="card h-100 mx-auto"> 
+            <div class="card-body">
+                <h2 class="card-title">REGISTRAR ACTIVIDAD NUEVA</h2>
+                <p class="card-text">¿Se incorpora una actividad nueva para ofrecer en nuestras sedes? Hacé click acá y agregala.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:actividadregistrar' %}">Ingresar</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100 mx-auto">
+            <div class="card-body">
+                <h2 class="card-title">REGISTRAR SEDE NUEVA</h2>
+                <p class="card-text">Ingresá a este segmento para sumar una nueva sede a nuestra lista vigente.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:sederegistrar' %}">Ingresar</a></div>
+        </div>
+    </div>
+</div>
+        {% endblock %}
+        <!-- Footer-->
+        <footer class="py-5 bg-dark fixed-bottom"> <!-- Agregamos la clase fixed-bottom -->
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppSport/js/scripts.js' %}"></script>
+    </body>
+</html>

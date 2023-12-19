@@ -9,14 +9,28 @@
             background-color: green;
             color: white;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
         }
+
+        h1 {
+            margin-bottom: 20px; /* Ajusta el espacio entre el texto y el botón */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #fff;
+            color: green;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>Registraste un nuevo usuario con éxito. <br> ¡Muchas gracias!</h1>
+    <h1>¡Tu nuevo registro se realizó de manera exitosa!</h1>
+    <a href="{% url 'AppSport:inicio' %}"><button>Ir a Inicio</button></a>
 </body>
 </html>

@@ -17,7 +17,6 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
-                <a class="navbar-brand" href="#!">AppSport</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -40,35 +39,31 @@
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">Tenemos distintas actividades en distintas localidades de Bs. As. Visitanos y ¡no te quedes sin entrenar!</p></div>
             </div>
-            <!-- Content Row-->
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">REGISTRATE</h2>
-                            <p class="card-text">En esta sección vas a poder registrarte como nuevx socix.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:socios' %}">Ingresar</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">TU INFO</h2>
-                            <p class="card-text">Acá vas a poder conocer tus datos como miembro de nuestra comunidad.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:actividades' %}">Ingresar</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    </div>
-                </div>
+<!-- Content Row-->
+<div class="row gx-4 gx-lg-5 justify-content-center"> <!-- Agregamos la clase justify-content-center -->
+    <div class="col-md-4 mb-5">
+        <div class="card h-100 mx-auto"> <!-- Agregamos la clase mx-auto -->
+            <div class="card-body">
+                <h2 class="card-title">REGISTRATE</h2>
+                <p class="card-text">En esta sección vas a poder registrarte como nuevx socix.</p>
             </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:socioregistrar' %}">Ingresar</a></div>
         </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100 mx-auto"> <!-- Agregamos la clase mx-auto -->
+            <div class="card-body">
+                <h2 class="card-title">TU INFO</h2>
+                <p class="card-text">Acá vas a poder conocer tus datos como miembro de nuestra comunidad.</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:actividades' %}">Ingresar</a></div>
+        </div>
+    </div>
+</div>
         {% block contenidoQueCambia %}
         {% endblock %}
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 bg-dark fixed-bottom"> <!-- Agregamos la clase fixed-bottom -->
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->

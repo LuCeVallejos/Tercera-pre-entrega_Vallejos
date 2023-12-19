@@ -48,7 +48,7 @@
                             <h2 class="card-title">LISTA DE ACTIVIDADES</h2>
                             <p class="card-text">En esta sección vas a poder conocer las actividades que podes encontrar en nuestras sedes.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:socios' %}">Ingresar</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'AppSport:actividadestodas' %}">Ingresar</a></div>
                     </div>
                 </div>
                  <div class="col-md-4 mb-5">
@@ -59,7 +59,7 @@
         {% block contenidoQueCambia %}
         {% endblock %}
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 bg-dark fixed-bottom"> <!-- Agregamos la clase fixed-bottom -->
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
